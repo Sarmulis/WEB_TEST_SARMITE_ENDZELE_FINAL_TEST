@@ -6,7 +6,7 @@ it('should highlight even numbers and leave odd numbers unhighlighted', () => {
   cy.visit('https://www.inbox.lv/');
 
   cy.get('input[id=imapuser]').type('andina19', { force: true });
-  cy.get('#pass').click({ force: true }).type('Andina222!', { force: true });
+  cy.get('#pass').click({ force: true }).type('Putraims111#', { force: true });
   cy.get('#btn_sign-in').click({ force: true });
 
   cy.origin('https://email.inbox.lv', () => {
