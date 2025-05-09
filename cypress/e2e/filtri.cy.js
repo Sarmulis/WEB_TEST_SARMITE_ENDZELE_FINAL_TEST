@@ -24,11 +24,15 @@ it('should highlight even numbers and leave odd numbers unhighlighted', () => {
   cy.wait(2000);
   cy.origin('https://email.inbox.lv', () => {
     
-    cy.get('a.a-menu__link[href="/prefs?group=forward_list"]', { timeout: 10000 }).should('be.visible').click();
-    cy.get('a[href="/prefs?group=forward"]', { timeout: 10000 }).should('be.visible').click();
-    cy.get('input[placeholder="E-pasta adrese"]').clear().type('vandaanda245@gmail.com');
-    cy.get('#btn_add-email').click();
-    
+    cy.get('a.a-menu__link[href="/filters"]', { timeout: 10000 }).should('be.visible').click();
+    cy.get('.btn.btn-primary').click();
+    cy.get('select#leader').select('From');
+    cy.get('select#check').select('contains');
+    cy.get('input[id=pattern]').type('Sarmīte');
+    cy.get('select#action').select('mark_important');
+    cy.get('.btn.btn-primary').click();
+    cy.get('input[id=filter-0]').check();
+    cy.get('.btn.btn-primary').click();
   });
 
 });  
